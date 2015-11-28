@@ -1,0 +1,87 @@
+    .node {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
+
+    .link {
+      stroke: #999;
+      stroke-opacity: .6;
+    }
+    #strong{
+      font-weight: bold;
+    }
+    #person{
+      font-weight: bold;
+      color: green;
+    }
+    #relation{
+      font-weight: bold;
+      color: red;
+    }
+
+    #tooltip1{
+      position: absolute;
+      z-index: 10;
+      visibility: hidden;
+      padding: 0 5px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      background-color: #fff;
+      color: #333;
+      font-size: 15px;
+      opacity: 0.99;
+      width: 320px;
+    }
+
+    #tooltip2{
+      position: absolute;
+      z-index: 10;
+      visibility: hidden;
+      padding: 0 5px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      background-color: #fff;
+      color: #333;
+      font-size: 15px;
+      opacity: 0.99;
+      width: 320px;
+    }
+
+    body{
+          background-color: #AAD6EE;
+          opacity: 0.8;
+        }
+    #panel{
+              background-color: #AAD6EE;
+              opacity: 0.9;
+              width: 65%;
+              height: 90%;
+            }
+    #searchform{
+              font-size: 15px;
+              height: 25px;
+              width: 300px;
+            }
+    #search{
+              font-size: 15px;
+              height: 30px;
+              width: 100px;
+            }
+    #title{
+      font-weight: bolder;
+      font-size: 40px;
+    }
+    #description{
+      font-size: 20px;
+    }
+    #hedder{
+      background-color: #FFFFFF;
+    }
+
+    #catchphrase{
+      font-size: 500%;
+      font-style: normal;
+      color: black;
+      background-color: #AAD6EE;
+      opacity: 0.9;
+    }
