@@ -4,7 +4,7 @@ $("#search").click( function(){
 	$("#panel").empty();
 	$.ajax({
 		type: 'POST',
-		    url: 'cgi-bin/cgi.py',
+		    url: 'cgi-bin/main_cgi.py',
 		    async: true,
 		    data: {query:$("#searchform").val()},
 		    dataType: "json",
@@ -18,7 +18,7 @@ $("#search").click( function(){
 			.nodes(nodes)
 			.links(links)
 			.size([w, h])
-			.linkDistance(50)
+			.linkDistance(30)
 			.linkStrength(0.7)
 			.charge(-400)
 			.gravity(0.1)
@@ -38,7 +38,7 @@ $("#search").click( function(){
 			.enter()
 			.append("circle")
 			.attr("r",function(d){ if(d.name == "info"){return 5;}
-				else{ return 40;}})
+				else{ return 30;}})
 			.attr("opacity",function(d){ if(d.name == "info"){return 1;}
 				else{ return 0.6;}})
 			.attr("fill",function(d){ if(d.name == "info"){return "blue";}

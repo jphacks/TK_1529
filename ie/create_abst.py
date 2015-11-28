@@ -13,7 +13,7 @@ def get_abst(title):
     else:
         return False
 
-f = open("detected_persons.txt")
+f = open("detected_entities.txt")
 i = 0
 for line in f:
     if i % 100 == 0:
