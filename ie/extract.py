@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 from xml.etree.ElementTree import *
-import re
+import re,gzip
 
 # 人名の辞書
 persons = {}
@@ -49,13 +49,33 @@ def extract_persons(title,sent):
         if is_person(person):
             yield  person
 
-# main
-with open("../../Downloads/jawiki-latest-pages-articles.xml") as f:
-    for i in range(10000):
-        title,text = page_iter(f).next()
-        if title and text:
-            for sent in sentence_split(text):
-                print sent
-                for p in list(extract_persons(title,sent)):
-                    print p,
+# 共演関係のパターン
+pattern = re.compile(u"(共演|共著)")
+
+rel = {}
+f = gzip.open("../../Downloads/jawiki-latest-pages-articles.xml.gz")
+j = 1
+for i in range(1000000): 
+    if i % 10000 == 0:
+        print i
+    title,text = page_iter(f).next()
+    for para in text.split("\n"):
+        for sent in sentence_split(para):
+            result = pattern.search(sent)
+            if result:
+                print title,sent
                 print
+                continue
+                person_list = list(set(extract_persons(title,sent)))
+                if len(person_list) > 1:
+                    for p1 in person_list:
+                        if p1 not in rel:
+                            rel[p1] = []
+                        temp = {"text":edit(sent,True),"title":title,"persons":[]}
+                        for p2 in person_list:
+                            if p2 != p1:
+                                temp["persons"].append(p2)
+                        rel[p1].append(temp)
+                else:
+                    pass
+f.close()
